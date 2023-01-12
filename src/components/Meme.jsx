@@ -3,12 +3,26 @@ import "./components.css"
 import memesData from "../memesData";
 
 export default function Meme() {
-    const [url, setUrl] = React.useState('')
+
+    const [meme, setMeme] = React.useState({
+        topText: "",
+        bottomText: "",
+        randomImage: ""
+    })
+
+    const [allMemeImages, setALlMemeImages] = React.useState(memesData)
+
+    // const [url, setUrl] = React.useState('')
+
     function handleOnClick() {
-        let memesDataArray = memesData.data.memes
+        let memesDataArray = allMemeImages.data.memes
         let x = Math.floor(Math.random()*memesDataArray.length)
-        setUrl(memesDataArray[x].url);
-        console.log(memesDataArray[x].url);
+        // setUrl(memesDataArray[x].url);
+        // console.log(memesDataArray[x].url);
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            randomImage: memesDataArray[x].url
+        }))
     }
     return(
         <div className="main">
@@ -19,7 +33,7 @@ export default function Meme() {
                 </div>
                 <button className="meme--button" onClick={handleOnClick}>GET A NEW MEME IMAGE 🖼️</button>
             </div>
-            {url && <img src={url} className="meme--image"/>}
+            {meme.randomImage && <img src={meme.randomImage} className="meme--image"/>}
         </div>
     )
 }
