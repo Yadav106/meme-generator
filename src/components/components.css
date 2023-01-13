@@ -57,13 +57,6 @@
     border: none;
 }
 
-/* .meme--image {
-    width: 400px;
-    align-items: center;
-    margin-left: 60px;
-    margin-top: 40px;
-} */
-
 .main {
     display: grid;
     justify-content: center;
@@ -79,8 +72,9 @@
 
 .meme--image {
     margin-top: 40px;
-    margin-left: 30px;
+    margin-left: 20px;
     position: relative;
+    justify-content: center;
 }
 
 .meme--text {
@@ -115,4 +109,41 @@
 
 .top {
     top: 0px;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .main {
+        margin: 0;
+    }
+    .meme--inputs {
+        display: grid;
+        gap: 10px;
+    }
+    
+    .input--text {
+        width: 330px;
+    }
+
+    .meme--button {
+        width: 380px;
+        margin: 0;
+    }
+
+    .meme--image {
+        margin: 0;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    .memeContainer {
+        margin: 0;
+        border-radius: 10px;
+        width: 380px;
+    }
+
+    .meme--text {
+        font-size: 1.5em;
+    }
 }
